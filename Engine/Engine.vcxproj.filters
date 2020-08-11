@@ -25,6 +25,12 @@
     <Filter Include="Input">
       <UniqueIdentifier>{a742afce-936e-4976-b29d-3db18d062d32}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{033d918a-020c-481e-b1fe-d4c3e9481761}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{b6ef6cb1-f4c8-4f84-9141-a1edbabda928}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -75,6 +81,21 @@
     <ClInclude Include="Core\Timer.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="Objects\Object.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects\GameObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\Component.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\PhysicsComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components\RenderComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -103,6 +124,12 @@
     </ClCompile>
     <ClCompile Include="Core\Timer.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\GameObject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Components\PhysicsComponent.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
