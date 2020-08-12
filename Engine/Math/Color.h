@@ -1,5 +1,7 @@
 #pragma once
+#include <SDL.h>
 #include <Windows.h>
+#include <iostream>
 
 namespace nc {
 	struct Color {
