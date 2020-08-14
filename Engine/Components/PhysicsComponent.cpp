@@ -2,11 +2,12 @@
 #include "PhysicsComponent.h"
 #include "Objects/GameObject.h"
 
+
 namespace nc {
 
 	void PhysicsComponent::Create(void* data)
 	{
-		m_velocity = nc::Vector2::forward * 100;
+		m_drag = 0.95f;
 	}
 
 	void PhysicsComponent::Destroy()
@@ -20,4 +21,5 @@ namespace nc {
 		m_velocity = m_velocity * m_drag;
 		m_owner->m_transform.position = m_owner->m_transform.position + m_velocity * m_owner->m_engine->GetTimer().DeltaTime();
 	}
+
 }

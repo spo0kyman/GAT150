@@ -2,6 +2,7 @@
 #include "Object.h"
 #include "Math/Transform.h"
 #include "Engine.h"
+#include <list>
 
 namespace nc {
 

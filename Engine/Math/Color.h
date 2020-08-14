@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <Windows.h>
 #include <iostream>
+#include "istreamwrapper.h"
 
 namespace nc {
 	struct Color {
@@ -17,6 +18,11 @@ namespace nc {
 			this->r = r;
 			this->g = g;
 			this->b = b;
+		}
+
+		friend std::ostream& operator << (std::ostream& stream, Color& c) {
+			stream << c.r << " " << c.g << " " << c.b << " " << c.a << std::endl;
+			return stream;
 		}
 
 		Color operator + (const Color& c) const { return { r + c.r, g + c.g, b + c.b }; }

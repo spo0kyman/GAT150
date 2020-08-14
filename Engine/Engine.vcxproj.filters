@@ -102,6 +102,9 @@
     <ClInclude Include="Components\SpriteComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="Core\Json.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -142,6 +145,9 @@
     </ClCompile>
     <ClCompile Include="Components\SpriteComponent.cpp">
       <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Json.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

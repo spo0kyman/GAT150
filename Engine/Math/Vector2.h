@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#include "istreamwrapper.h"
 
 namespace nc {
 	struct Vector2 {
@@ -14,6 +14,11 @@ namespace nc {
 		const float& operator [] (size_t index) const { return (&x)[index]; }
 
 		void set(float x, float y) { this->x = x; this->y = y; }
+
+		friend std::ostream& operator << (std::ostream& stream, Vector2& v) {
+			stream << v.x << " " << v.y << std::endl;
+			return stream;
+		}
 
 		Vector2 operator + (const Vector2& v) const { return Vector2{ x + v.x, y + v.y }; }
 		Vector2 operator - (const Vector2& v) const { return Vector2{ x - v.x, y - v.y }; }

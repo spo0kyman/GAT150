@@ -90,7 +90,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);C:\Users\Carter Ciesluk\source\repos\GameEngine2\Middleware\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\JSON\include\rapidjson;$(ProjectDir);C:\Users\Carter Ciesluk\source\repos\GameEngine2\Middleware\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -109,7 +109,7 @@
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);C:\Users\Carter Ciesluk\source\repos\GameEngine2\Middleware\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\JSON\include\rapidjson;$(ProjectDir);C:\Users\Carter Ciesluk\source\repos\GameEngine2\Middleware\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -130,7 +130,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);C:\Users\Carter Ciesluk\source\repos\GameEngine2\Middleware\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\JSON\include\rapidjson;$(ProjectDir);C:\Users\Carter Ciesluk\source\repos\GameEngine2\Middleware\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -153,7 +153,7 @@
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(ProjectDir);C:\Users\Carter Ciesluk\source\repos\GameEngine2\Middleware\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Middleware\JSON\include\rapidjson;$(ProjectDir);C:\Users\Carter Ciesluk\source\repos\GameEngine2\Middleware\SDL2-2.0.12\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -171,6 +171,7 @@
     <ClInclude Include="Components\PhysicsComponent.h" />
     <ClInclude Include="Components\RenderComponent.h" />
     <ClInclude Include="Components\SpriteComponent.h" />
+    <ClInclude Include="Core\Json.h" />
     <ClInclude Include="Core\System.h" />
     <ClInclude Include="Core\Timer.h" />
     <ClInclude Include="Engine.h" />
@@ -194,6 +195,7 @@
   <ItemGroup>
     <ClCompile Include="Components\PhysicsComponent.cpp" />
     <ClCompile Include="Components\SpriteComponent.cpp" />
+    <ClCompile Include="Core\Json.cpp" />
     <ClCompile Include="Core\Timer.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="Graphics\Renderer.cpp" />
