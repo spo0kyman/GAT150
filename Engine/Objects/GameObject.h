@@ -26,11 +26,13 @@ namespace nc {
 		void RemoveAllComponenets();
 
 	public:
+		std::string m_name;
 		Transform m_transform;
 		Engine* m_engine;
 
 	protected:
 		std::list<Component*> m_components;
+		
 	};
 	
 	template<typename T>
