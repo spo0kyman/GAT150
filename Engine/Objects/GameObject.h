@@ -24,6 +24,7 @@ namespace nc {
 		void AddComponent(Component* component);
 		void RemoveComponent(Component* component);
 		void RemoveAllComponenets();
+		void ReadComponents(const rapidjson::Value& value);
 
 	public:
 		std::string m_name;
