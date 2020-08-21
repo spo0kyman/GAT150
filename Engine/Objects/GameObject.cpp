@@ -5,6 +5,18 @@
 #include "ObjectFactory.h"
 
 namespace nc {
+	GameObject::GameObject(const GameObject& other)
+	{
+		m_name = other.m_name;
+		m_transform = other.m_transform;
+		m_engine = other.m_engine;
+
+		for (auto component : other.m_components) {
+			Component* clone = dynamic_cast<Component*>(component->Clone());
+			clone->m_owner = this;
+			AddComponent(clone);
+		}
+	}
 
 	void GameObject::Create(void* data)
 	{
@@ -13,7 +25,7 @@ namespace nc {
 
 	void GameObject::Destroy()
 	{
-		RemoveAllComponenets();
+		RemoveAllComponents();
 	}
 
 	void GameObject::Read(const rapidjson::Value& value)
@@ -58,7 +70,7 @@ namespace nc {
 		}
 	}
 
-	void GameObject::RemoveAllComponenets()
+	void GameObject::RemoveAllComponents()
 	{
 		for (auto component : m_components) {
 			component->Destroy();

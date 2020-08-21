@@ -13,15 +13,22 @@ nc::Scene scene;
 int main(int, char**) {
 
 	engine.Startup();
-	scene.Create(&engine);
-
+	
 	nc::ObjectFactory::Instance().Initialize();
-
-	nc::ObjectFactory::Instance().Register("PlayerComponent", nc::Object::Instantiate<nc::PlayerComponent>);
+	nc::ObjectFactory::Instance().Register("PlayerComponent", new nc::Creator<nc::PlayerComponent, nc::Object>);
 	
 	rapidjson::Document document; 
 	nc::json::Load("scene.txt", document);
+	scene.Create(&engine);
 	scene.Read(document);
+
+	for (size_t i = 0; i < 10; i++) {
+		nc::GameObject* gameObject = nc::ObjectFactory::Instance().Create<nc::GameObject>("ProtoExplosion");
+		gameObject->m_transform.position = { nc::random(0, 800), nc::random(0, 600) };
+		gameObject->m_transform.angle = nc::random(0, 360);
+
+		scene.AddGameObject(gameObject);
+	}
 
 	nc::Vector2 velocity{ 0,0 };
 
