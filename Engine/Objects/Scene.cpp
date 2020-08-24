@@ -21,6 +21,18 @@ namespace nc {
 
 			gameObject->Update();
 		}
+
+		auto iter = m_gameObjects.begin();
+		while (iter != m_gameObjects.end()) {
+			if ((*iter)->m_flags[GameObject::eFlags::DESTROY]) {
+				(*iter)->Destroy();
+				delete(*iter);
+				iter = m_gameObjects.erase(iter);
+			}
+			else {
+				iter++;
+			}
+		}
 	}
 
 	void Scene::Read(const rapidjson::Value& value)
@@ -98,6 +110,19 @@ namespace nc {
 			}
 		}
 		return nullptr;
+	}
+
+	std::vector<GameObject*> Scene::FindGameObjectsWithTag(const std::string& tag)
+	{
+		std::vector<GameObject*> gameObjects;
+
+		for (auto gameObject : m_gameObjects) {
+			if (gameObject->m_tag == tag) {
+				gameObjects.push_back(gameObject);
+			}
+		}
+
+		return gameObjects;
 	}
 
 	void Scene::AddGameObject(GameObject* gameObject)

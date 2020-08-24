@@ -2,6 +2,7 @@
 #include "Object.h"
 #include "Math/Transform.h"
 #include "Engine.h"
+#include <bitset>
 #include <list>
 
 namespace nc {
@@ -9,6 +10,13 @@ namespace nc {
 	class Component;
 
 	class GameObject : public Object {
+	public:
+		enum eFlags {
+			ACTIVE,
+			VISIBLE,
+			DESTROY,
+			TRANSIENT
+		};
 	public:
 		GameObject() = default;
 		GameObject(const GameObject& other);
@@ -32,6 +40,11 @@ namespace nc {
 
 	public:
 		std::string m_name;
+		std::string m_tag;
+		std::bitset<32> m_flags;
+
+		float m_lifetime{ 0 };
+
 		Transform m_transform;
 		Engine* m_engine{ nullptr };
 			
