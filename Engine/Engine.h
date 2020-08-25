@@ -3,6 +3,7 @@
 #include "Graphics/Renderer.h"
 #include "Input/InputSystem.h"
 #include "Core/Timer.h"
+#include "Physics/PhysicsSystem.h"
 #include <vector>
 
 namespace nc {
