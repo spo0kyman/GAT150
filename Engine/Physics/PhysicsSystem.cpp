@@ -1,31 +1,29 @@
 #include "pch.h"
 #include "PhysicsSystem.h"
+#include "ContactListener.h"
 
 namespace nc {
 
 	bool PhysicsSystem::Startup()
-	{
-		//Declare a b2Vec2 variable call gravity set it to{ 0, -10 }
+	{	
 		b2Vec2 gravity(0.0f, 150.0f);
-		//Create an instance of b2World using new and use gravity for the constructor, assign the m_world
 		m_world = new b2World(gravity);
+		m_contactListener = new ContactListener;
 
 		return m_world;
 	}
 
 	void PhysicsSystem::Shutdown()
 	{
-		//Call delete on m_world
 		delete m_world;
-		//Set m_world to nullptr;
 		m_world = nullptr;
+		delete m_contactListener;
+		m_contactListener = nullptr;
 	}
 
 	void PhysicsSystem::Update()
 	{
-		//Declare a float timeStep and set it to a 60th of a second(1.0f / 60.0f)
 		float timeStep = (1.0f / 60.0f);
-		//Call Step on m_world passing in the timestep and 8 and 3 for the velocity and position iteration
 		m_world->Step(timeStep, 8, 3);
 	}
 
@@ -45,11 +43,12 @@ namespace nc {
 		return body;
 	}
 
-	b2Body* PhysicsSystem::CreateBody(const Vector2& position, RigidBodyData data, GameObject* gameObject)
+	b2Body* PhysicsSystem::CreateBody(const Vector2& position, float angle, RigidBodyData data, GameObject* gameObject)
 	{
 		b2BodyDef bodyDef;
 		bodyDef.type = (data.isDynamic) ? b2_dynamicBody : b2_staticBody;
 		bodyDef.position.Set(position.x, position.y);
+		bodyDef.angle = nc::DegreesToRadians(angle);
 		bodyDef.fixedRotation = data.lockAngle;
 		b2Body* body = m_world->CreateBody(&bodyDef);
 
@@ -60,6 +59,7 @@ namespace nc {
 		fixtureDef.density = data.density;
 		fixtureDef.friction = data.friction;
 		fixtureDef.restitution = data.restitution;
+		fixtureDef.userData = gameObject;
 		fixtureDef.shape = &shape;
 		body->CreateFixture(&fixtureDef);
 

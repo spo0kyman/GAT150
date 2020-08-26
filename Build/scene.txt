@@ -3,8 +3,8 @@
 		{
 			"type":"GameObject",
 			"name":"ProtoExplosion",
-			"transient": true,
-			"lifetime": 1.5,
+			"transient":true,
+			"lifetime":1.5,
 			"position":[
 				400,
 				300
@@ -25,6 +25,65 @@
 					"fps":30
 				}
 			]
+		},
+		{
+			"type":"ProtoExplosion",
+			"name":"Explosion",
+			"lifetime":4.0,
+			"position":[
+				400,
+				200
+			],
+			"scale":1,
+			"angle":0
+		},
+		{
+			"type":"ProtoExplosion",
+			"name":"Explosion",
+			"position":[
+				100,
+				270
+			],
+			"scale":2,
+			"angle":0
+		},
+		{
+			"type":"GameObject",
+			"name":"ProtoBox",
+			"position":[
+				200,
+				300
+			],
+			"scale":1,
+			"angle":0,
+			"Components":[
+				{
+					"type":"SpriteComponent",
+					"texture":"box.png",
+					"origin":[
+						0.5,
+						0.5
+					],
+					"rect":[
+						0,
+						0,
+						32,
+						32
+					]
+				},
+				{
+					"type":"RigidBodyComponent",
+					"isDynamic":true,
+					"lockAngle":false,
+					"size":[
+						16,
+						16
+					],
+					"density":1,
+					"friction":1,
+					"restitution":0.0
+				}
+			]
 		}
 	],
 	"GameObjects":[
@@ -41,7 +100,10 @@
 				{
 					"type":"SpriteComponent",
 					"texture":"ground.png",
-					"origin":[0.5, 0.5],
+					"origin":[
+						0.5,
+						0.5
+					],
 					"rect":[
 						0,
 						0,
@@ -51,12 +113,15 @@
 				},
 				{
 					"type":"RigidBodyComponent",
-					"isDynamic": false,
-					"lockAngle": true,
-					"size": [400, 16],
-					"density": 1,
-					"friction": 1,
-					"restitution": 0.8
+					"isDynamic":false,
+					"lockAngle":true,
+					"size":[
+						400,
+						16
+					],
+					"density":1,
+					"friction":1,
+					"restitution":0.8
 				}
 			]
 		},
@@ -68,16 +133,19 @@
 				300
 			],
 			"scale":1,
-			"angle":45,
+			"angle":0,
 			"Components":[
 				{
 					"type":"RigidBodyComponent",
-					"isDynamic": true,
-					"lockAngle": true,
-					"size": [16, 32],
-					"density": 1,
-					"friction": 1,
-					"restitution": 0
+					"isDynamic":true,
+					"lockAngle":true,
+					"size":[
+						16,
+						32
+					],
+					"density":1,
+					"friction":1,
+					"restitution":0
 				},
 				{
 					"type":"PlayerComponent"
@@ -97,27 +165,6 @@
 					]
 				}
 			]
-		},
-		{
-			"type":"ProtoExplosion",
-			"name":"Explosion",
-			"lifetime": 4.0,
-			"position":[
-				400,
-				200
-			],
-			"scale":1,
-			"angle":0
-		},
-		{
-			"type":"ProtoExplosion",
-			"name":"Explosion",
-			"position":[
-				100,
-				270
-			],
-			"scale":2,
-			"angle":0
 		}
 	]
 }

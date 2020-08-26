@@ -15,6 +15,7 @@ namespace nc {
 				rapidjson::IStreamWrapper istream(stream);
 				document.ParseStream(istream); 
 				success = document.IsObject(); 
+				
 			}
 
 			return success;
