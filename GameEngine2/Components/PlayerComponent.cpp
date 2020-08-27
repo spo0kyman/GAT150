@@ -16,22 +16,31 @@ namespace nc {
 
 	void PlayerComponent::Update()
 	{
+		auto contacts = m_owner->GetContactsWithTag("Floor");
+		bool onGround = !contacts.empty();
+
 		nc::Vector2 force{ 0,0 };
 
 		if (m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_A) == nc::InputSystem::eButtonState::HELD) {
-			force.x = -20000;
+			force.x = -100;
 		}
 
 		if (m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_D) == nc::InputSystem::eButtonState::HELD) {
-			force.x = 20000;
+			force.x = 100;
 		}
 
-		if (m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_SPACE) == nc::InputSystem::eButtonState::PRESSED) {
-			force.y = -400000;
+		if (onGround && m_owner->m_engine->GetSystem<nc::InputSystem>()->GetButtonState(SDL_SCANCODE_SPACE) == nc::InputSystem::eButtonState::PRESSED) {
+			force.y = -1500;
 		}
 		PhysicsComponent* component = m_owner->GetComponent<PhysicsComponent>();
 		if (component) {
 			component->SetForce(force);
+		}
+
+		//check collision
+		auto coinContacts = m_owner->GetContactsWithTag("Coin");
+		for (auto contact : coinContacts) {
+			contact->m_flags[GameObject::eFlags::DESTROY] = true;
 		}
 	}
 }
