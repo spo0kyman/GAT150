@@ -4,6 +4,7 @@
 #include "istreamwrapper.h"
 #include "Math/Vector2.h"
 #include "Math/Color.h"
+#include <vector>
 
 namespace nc {
 
@@ -16,6 +17,9 @@ namespace nc {
 		bool Get(const rapidjson::Value& value, const std::string& name, Vector2& data); 
 		bool Get(const rapidjson::Value& value, const std::string& name, Color& data);
 		bool Get(const rapidjson::Value& value, const std::string& name, SDL_Rect& rect);
+
+		bool Get(const rapidjson::Value& value, const std::string& name, std::vector<std::string>& data);
+		bool Get(const rapidjson::Value& value, const std::string& name, std::vector<int>& data);
 
 	};
 
