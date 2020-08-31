@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Graphics/Texture.h"
+#include "Components/EnemyComponent.h"
 #include "Objects/GameObject.h"
 #include "Components/PlayerComponent.h"
 #include "Core/Json.h"
@@ -17,6 +18,7 @@ int main(int, char**) {
 	
 	nc::ObjectFactory::Instance().Initialize();
 	nc::ObjectFactory::Instance().Register("PlayerComponent", new nc::Creator<nc::PlayerComponent, nc::Object>);
+	nc::ObjectFactory::Instance().Register("EnemyComponent", new nc::Creator<nc::EnemyComponent, nc::Object>);
 	
 	rapidjson::Document document; 
 	nc::json::Load("scene.txt", document);

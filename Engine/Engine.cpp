@@ -9,6 +9,7 @@ bool nc::Engine::Startup()
 	m_systems.push_back(new InputSystem);
 	m_systems.push_back(new ResourceManager);
 	m_systems.push_back(new PhysicsSystem);
+	m_systems.push_back(new AudioSystem);
 
 	for (auto system : m_systems) {
 		system->Startup();

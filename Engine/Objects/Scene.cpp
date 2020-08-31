@@ -66,7 +66,7 @@ namespace nc {
 				GameObject* gameObject = ObjectFactory::Instance().Create<GameObject>(typeName);
 				if (gameObject) {
 
-					gameObject->Create(m_engine);
+					gameObject->Create(this);
 					gameObject->Read(objectValue);
 
 					AddGameObject(gameObject);
@@ -85,7 +85,7 @@ namespace nc {
 				json::Get(objectValue, "type", typeName);
 				GameObject* gameObject = ObjectFactory::Instance().Create<GameObject>(typeName);
 				if (gameObject) {
-					gameObject->Create(m_engine);
+					gameObject->Create(this);
 					gameObject->Read(objectValue);
 
 					ObjectFactory::Instance().Register(gameObject->m_name, new Prototype<Object>(gameObject));

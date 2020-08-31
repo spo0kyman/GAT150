@@ -13,11 +13,13 @@ namespace nc {
 		virtual void Draw() override;
 		void Read(const rapidjson::Value& value) override;
 		
+		void Flip(bool flip = true) { m_flip = flip; }
 
 	protected:
 		std::string m_textureName;
 		Vector2 m_origin;
 		SDL_Rect m_rect{ 0,0,0,0 };
+		bool m_flip{ false };
 	};
 
 }
