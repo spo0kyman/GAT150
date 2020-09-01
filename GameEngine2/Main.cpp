@@ -1,9 +1,10 @@
 #include "pch.h"
 #include "Graphics/Texture.h"
-#include "Components/EnemyComponent.h"
 #include "Objects/GameObject.h"
 #include "Components/PlayerComponent.h"
+#include "Components/EnemyComponent.h"
 #include "Core/Json.h"
+#include "Core/EventManager.h"
 #include "Core/Factory.h"
 #include "Objects/ObjectFactory.h"
 #include "Objects/Scene.h"
@@ -11,6 +12,12 @@
 
 nc::Engine engine;
 nc::Scene scene;
+
+void OnPlayerDead(const nc::Event& event) {
+	int* pdata = static_cast<int*>(event.data);
+	
+	std::cout << "Player Dead " << (*pdata) << std::endl;
+}
 
 int main(int, char**) {
 
@@ -20,6 +27,8 @@ int main(int, char**) {
 	nc::ObjectFactory::Instance().Register("PlayerComponent", new nc::Creator<nc::PlayerComponent, nc::Object>);
 	nc::ObjectFactory::Instance().Register("EnemyComponent", new nc::Creator<nc::EnemyComponent, nc::Object>);
 	
+	nc::EventManager::Instance().Subscribe("PlayerDead", &OnPlayerDead);
+
 	rapidjson::Document document; 
 	nc::json::Load("scene.txt", document);
 	scene.Create(&engine);
