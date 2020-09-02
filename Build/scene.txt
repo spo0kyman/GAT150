@@ -86,7 +86,7 @@
 					"fps":10
 				},
 				{
-					"type": "EnemyComponent"
+					"type":"EnemyComponent"
 				},
 				{
 					"type":"RigidBodyComponent",
@@ -100,33 +100,49 @@
 					"density":1,
 					"friction":1,
 					"restitution":0,
-					"gravityScale": 0
+					"gravityScale":0
 				}
 			]
 		},
 		{
 			"type":"GameObject",
 			"name":"ProtoBox",
+			"tag":"Floor",
+			"transient":false,
 			"position":[
-				40,
-				30
+				0,
+				0
 			],
 			"scale":1,
 			"angle":0,
 			"Components":[
 				{
 					"type":"SpriteComponent",
+					"z":1,
 					"texture":"textures/crate.png",
 					"origin":[
 						0.5,
 						0.5
 					],
 					"rect":[
-						0,
-						0,
-						24,
-						24
+						2,
+						2,
+						40,
+						40
 					]
+				},
+				{
+					"type":"RigidBodyComponent",
+					"isDynamic":true,
+					"isSensor":false,
+					"lockAngle":false,
+					"size":[
+						20,
+						20
+					],
+					"density":1,
+					"friction":1,
+					"restitution":0
 				}
 			]
 		},
@@ -224,11 +240,11 @@
 				},
 				{
 					"type":"SpriteAnimationComponent",
-					"texture":"Textures/player.png",
-					"numX":8,
-					"numY":1,
-					"numFrames":8,
-					"fps":15,
+					"texture":"Textures/character_run.png",
+					"numX":6,
+					"numY":4,
+					"numFrames":24,
+					"fps":48,
 					"origin":[
 						0.5,
 						0.5
